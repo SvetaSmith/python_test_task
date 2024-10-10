@@ -6,7 +6,7 @@ from gspread import Spreadsheet
 
 
 def main():
-    env.read_envfile()
+
     table_id_my = env.str("TABLE_ID_MY")
     client = gtask.client_init()
     table = gtask.get_table_by_id(client, table_id_my)
@@ -40,7 +40,7 @@ def sync_static(table: Spreadsheet) -> bool:
         make_request_update_statis(dif_update)
         print("Обновлено", len(dif_update), "записей в Static Texts")
     else:
-        print("Нет данных для изменения в Static Texts")
+        print("Нет данных для обновления в Static Texts")
 
     if len(dif_add) > 0:
         dif_add = make_data_for_request(dif_add)
@@ -83,7 +83,7 @@ def sync_game(table: Spreadsheet) -> bool:
         make_request_add_game(dif_add)
         print("Добавлено", len(dif_add), "записей в Game Text")
     else:
-        print("Нет данных для обновления в Game Text")
+        print("Нет данных для добавления в Game Text")
 
 
 ##добавляем в словарь пару hash, {hash,  хэш от полей со значениями},
