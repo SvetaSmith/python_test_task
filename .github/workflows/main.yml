@@ -1,0 +1,35 @@
+name: 'Gridly sync'
+
+on:
+  schedule:
+    - cron: '25 8 * * 1'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r req.txt
+        
+      - name: Run a Python-script
+        run: python main.py
+        env:
+          TABLE_ID_MY: ${{secrets.TABLE_ID_MY}}
+          SERVICE_ACCOUNT: ${{secrets.SERVICE_ACCOUNT}}
+          API_KEY: ${{secrets.API_KEY}}
