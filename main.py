@@ -6,7 +6,8 @@ from gspread import Spreadsheet
 
 
 def main():
-
+    ## нужно вернуть, если требуется работа с локальным файлом .env
+    env.read_envfile() 
     table_id_my = env.str("TABLE_ID_MY")
     client = gtask.client_init()
     table = gtask.get_table_by_id(client, table_id_my)
