@@ -2,7 +2,7 @@ import requests
 from envparse import env
 
 
-env.read_envfile()
+
 ApiKey = env.str("API_KEY")
 
 HEADERS = {"Authorization": "ApiKey " + ApiKey}
