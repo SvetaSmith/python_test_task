@@ -164,7 +164,8 @@ def prepare_list_for_work(
     return dif_update, dif_add
 
 
-####  сформировать данные запроса на апдейт и вставку в гридли
+####  сформировать данные  в виде, необходимом 
+# для  запроса на апдейт и вставку в гридли
 def make_data_for_request(data: list[dict]) -> list[dict]:
     list = []
     for data_row in data:
