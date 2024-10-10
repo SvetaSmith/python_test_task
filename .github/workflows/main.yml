@@ -1,8 +1,8 @@
 name: 'Gridly sync'
 
 on:
-  schedule:
-    - cron: '25 8 * * 1'
+  discussion_comment:
+    types:[created]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
