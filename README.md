@@ -21,8 +21,8 @@
 - использование скрипта Google Apps Script. В таком случае можно реализовать кнопку в главном меню и непосредственно из таблицы осуществлять запуск синхронизации
   ```function onOpen() {
     let ui = SpreadsheetApp.getUi();
-    ui.createMenu('Отправка в gridly')
-       .addItem('Отправить данные', 'updateData')
+    ui.createMenu("Отправка в gridly")
+       .addItem("Отправить данные", "updateData")
        .addToUi();
     }```
   пример создания меню.
