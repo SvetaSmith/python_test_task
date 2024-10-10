@@ -15,7 +15,7 @@ def main():
 
 
 ##синхронизация данных таблицы Static Texts из гугл в гридли:
-# новые записи вставляем, старые - обновляем, удаланные - пропускаем
+# новые записи вставляем, старые - обновляем, удаленные - пропускаем
 def sync_static(table: Spreadsheet) -> bool:
     ##данные из гугл
     data_google_static = gtask.extract_data_from_sheet(table, "Static Texts")
